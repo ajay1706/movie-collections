@@ -8,9 +8,9 @@
 #Tasks:
 """"
 [x]: Decide where to store movies
-[]: What is the format of the movie.
+[x]: What is the format of the movie.
 [x]:Show the user the main interface and get their input.
-[]: Allow users to add movies.
+[x]: Allow users to add movies.
 []: Show all their movies
 []: Find a movie
 [x]: Stop running the program when they type 'q'
@@ -46,7 +46,7 @@ def menu():
             print("Unknown command ")
 
 
-        user_input = input("Enter 'a' to add movie, '1' to see your movies , 'f' to find a movie , and 'q' to quit")
+        user_input = input("\nEnter 'a' to add movie, '1' to see your movies , 'f' to find a movie , and 'q' to quit")
 
 
 def add_movie():
@@ -60,9 +60,15 @@ def add_movie():
         'year': year
     })
 
+def show_movies():
+    for movie in movies:
+        show_movie_details(movie)
 
+
+def show_movie_details(movie):
+    print(f"Name: {movie['name']}")
+    print(f"Director: {movie['director']}")
+    print(f"Year: {movie['year']}")
 
 
 menu()
-print(movies)
-
