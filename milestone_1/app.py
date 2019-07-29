@@ -36,7 +36,7 @@ def menu():
         if user_input == 'a':
             add_movie()
         elif user_input == 'l':
-            show_movies()
+            show_movies(movies)
         elif user_input == 'f':
             find_movies()
         elif user_input == 'q':
@@ -69,6 +69,23 @@ def show_movie_details(movie):
     print(f"Name: {movie['name']}")
     print(f"Director: {movie['director']}")
     print(f"Year: {movie['year']}")
+
+def find_movies():
+    find_by = input("What property of the movie are you looking for?")
+    looking_for = input("What are you searching for?")
+
+    found_movies =  find_by_attributes(looking_for, lambda x: x[find_by])
+    show_movie_details(found_movies)
+
+def find_by_attributes(items,expected , finder):
+    found = []
+
+    for i in items:
+        if finder[i] == expected:
+            found.append(i)
+
+    return found
+
 
 
 menu()
